@@ -6,6 +6,7 @@ const app = express();
 
 
 // will need this to handle json
+app.use(express.static('dist'))
 app.use(express.json());
 
 morgan.token('req_body', function (req, res) {
@@ -39,9 +40,9 @@ let persons = [
     }
 ];
 
-app.get('/', (req, res) => {
-    res.send('<h1>Hello, world!</h1>')
-})
+// app.get('/', (req, res) => {
+//     res.send('<h1>Hello, world!</h1>')
+// })
 
 app.get('/api/persons', (req, res) => {
     res.json(persons);
